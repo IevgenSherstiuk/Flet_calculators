@@ -12,7 +12,7 @@ def main(page: ft.Page):
 
     if sys.platform == "emscripten": # check if run in Pyodide environment
         import micropip
-        micropip.install("pandas", keep_going=True)
+        await micropip.install("pandas", keep_going=True)
 
     
     page.title = "Калькулятор цены дроселя"
