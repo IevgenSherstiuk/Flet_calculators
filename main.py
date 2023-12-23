@@ -8,7 +8,7 @@ import sys
 
 if sys.platform == "emscripten": # check if run in Pyodide environment
     import micropip
-    await micropip.install("pandas")
+    micropip.install("pandas")
 
 
 
