@@ -17,29 +17,23 @@ df = pandas.DataFrame.from_dict(Nvalue_dic)
 
 print(df.loc[0, '5'])
 
-def main(page: ft.Page):
-    page.title = "Flet counter example"
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
-    txt_number = ft.TextField(value="0", text_align="right", width=100)
+async def main(page: ft.Page):
+    if sys.platform == "emscripten": # check if run in Pyodide environment
+        import micropip
+        await micropip.install("pandas")
 
-    def minus_click(e):
-        txt_number.value = str(int(txt_number.value) - 1)
-        page.update()
+    import pandas
 
-    def plus_click(e):
-        txt_number.value = str(int(txt_number.value) + 1)
-        page.update()
+    Nvalue_dic = {
+            '5': [2500, 3200, 2500, 2000, 2000, 2100, 2250, 2300],
+            '10': [1500, 2200, 4500, 2000, 2500, 3000, 3000, 3200]
+        }
+    
+    
+    df = pandas.DataFrame.from_dict(Nvalue_dic)
 
-    page.add(
-        ft.Row(
-            [
-                ft.IconButton(ft.icons.REMOVE, on_click=minus_click),
-                txt_number,
-                ft.IconButton(ft.icons.ADD, on_click=plus_click),
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-        )
-    )
+    print(df.loc[0, '5'])
+    await page.add_async(ft.Text("Hello, async world!"))
 
-ft.app(target=main, view=ft.WEB_BROWSER)
+ft.app(main)
