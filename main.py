@@ -6,14 +6,15 @@ from styles import cell_style
 from btns_handler import btns_from_df, update_btns
 import sys
 
-if sys.platform == "emscripten": # check if run in Pyodide environment
-    import micropip
-    micropip.install("pandas")
-
-
 
 
 def main(page: ft.Page):
+
+    if sys.platform == "emscripten": # check if run in Pyodide environment
+        import micropip
+        micropip.install("pandas")
+
+    
     page.title = "Калькулятор цены дроселя"
     page.scroll = True
     page.vertical_alignment = ft.MainAxisAlignment.START
