@@ -1,5 +1,0 @@
-My first work with Git 
-
-changes
-
-branch changes
