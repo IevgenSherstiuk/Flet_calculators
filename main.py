@@ -4,11 +4,8 @@ from inductor_my import N_culculate
 from pprint import pprint
 from styles import cell_style
 from btns_handler import btns_from_df, update_btns
-
-import sys
-if sys.platform == "emscripten": # check if run in Pyodide environment
-        import micropip
-        await micropip.install("pandas")
+import micropip
+await micropip.install("pandas")
 
 
 def main(page: ft.Page):
