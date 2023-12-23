@@ -1,4 +1,1 @@
-flet==0.17.0
-flet-core==0.17.0
-flet-runtime==0.17.0
-
+flet
