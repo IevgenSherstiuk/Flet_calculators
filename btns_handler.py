@@ -2,13 +2,9 @@ import flet as ft
 from styles import cell_style
 from pprint import pprint
 
-import sys
-if sys.platform == "emscripten": # check if run in Pyodide environment
-    import micropip
-    await micropip.install("pandas")
-import pandas as pd
 
-def update_btns(btns_matrix, df:pd.DataFrame, H_list, Mu_list):
+
+def update_btns(btns_matrix, df, H_list, Mu_list):
     for row in btns_matrix:
         for btn in btns_matrix[row]:
 
@@ -19,7 +15,7 @@ def update_btns(btns_matrix, df:pd.DataFrame, H_list, Mu_list):
             btn.text = new_value  #<<< err if axis dublicated need to handle
             btn.style = cell_style(new_value)
 
-async def btns_from_df(df:pd.DataFrame):
+async def btns_from_df(df):
         
         btns_matrix = {}
 
