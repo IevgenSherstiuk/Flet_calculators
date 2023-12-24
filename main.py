@@ -10,7 +10,7 @@ async def main(page: ft.Page):
 
     if sys.platform == "emscripten": # check if run in Pyodide environment
         import micropip
-        await micropip.install("pandas==1.5.1")
+        await micropip.install("pandas==1.5.3")
         package_list = micropip.list()
         print(package_list)
 
