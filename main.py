@@ -22,7 +22,7 @@ async def main(page: ft.Page):
     page.theme = ft.Theme(color_scheme_seed=ft.colors.LIGHT_BLUE_700)
 
     #inputs
-    I = ft.TextField(label="  Current Intensity, A", height=40, width=250, content_padding=ft.padding.all(5), text_align='center', color=ft.colors.AMBER_600)
+    I = ft.TextField(label="  Current Intensity, A", height=40, width=250, content_padding=ft.padding.all(5), text_align='center')
     L = ft.TextField(label="  Inductance, mGn", height=40, width=250, content_padding=ft.padding.all(5), text_align='center')
     
 
