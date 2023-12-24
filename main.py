@@ -10,7 +10,7 @@ async def main(page: ft.Page):
 
     if sys.platform == "emscripten": # check if run in Pyodide environment
         import micropip
-        await micropip.install("pandas==1.5.3 ", keep_going=True)
+        await micropip.install("pandas==1.5.0")
         package_list = micropip.list()
         print(package_list)
 
@@ -33,7 +33,7 @@ async def main(page: ft.Page):
     Mu_list = [19, 26, 40, 60, 90, 125, 147, 160, 175, 200, 300, 400, 500, 700, 1000, 3000, 10000, 30000, 50000, 90000]
     N_df = await N_culculate(1, 50, H_list, Mu_list)         #<<<<<main calculation
 
-    print(N_df)
+    #print(N_df)
 
 
     async def N_culc(e):
