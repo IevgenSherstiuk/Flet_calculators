@@ -1,8 +1,12 @@
 import flet as ft
-import pandas as pd
 from styles import cell_style
 from pprint import pprint
 
+import sys
+if sys.platform == "emscripten": # check if run in Pyodide environment
+    import micropip
+    await micropip.install("pandas")
+import pandas as pd
 
 def update_btns(btns_matrix, df:pd.DataFrame, H_list, Mu_list):
     for row in btns_matrix:
